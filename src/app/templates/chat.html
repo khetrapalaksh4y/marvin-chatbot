@@ -1,29 +1,31 @@
-<!--
-
-Follow me on
-Dribbble: https://dribbble.com/supahfunk
-Twitter: https://twitter.com/supahfunk
-Codepen: http://codepen.io/supah/
-
-It's just a concept, a fake chat to design a new daily UI for direct messaging.
-Hope you like it :)
-
--->
-
 <div class="chat">
-  <div class="chat-title">
-    <h1>Fabio Ottaviani</h1>
-    <h2>Supah</h2>
-    <figure class="avatar">
-      <img src="http://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80_4.jpg" /></figure>
-  </div>
-  <div class="messages">
-    <div class="messages-content"></div>
-  </div>
-  <div class="message-box">
-    <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
-    <button type="submit" class="message-submit">Send</button>
-  </div>
-
+	<div class="chat-title">
+		<h1>Marvin</h1>
+		<h2 ng-show="!chat.typing">online</h2>
+		<h2 ng-show="chat.typing">is typing...</h2>
+		<figure class="avatar">
+			<img ng-src="{{chat.botAvatar}}" />
+		</figure>
+	</div>
+	<div class="messages">
+		<div class="messages-content new">
+			<div class="message new" ng-class="{'message-personal': !response.left}" ng-repeat="response in chat.responses">
+				<figure class="avatar" ng-show="response.left">
+					<img ng-src="{{chat.botAvatar}}" />
+				</figure>
+				<span>{{response.message}}</span>
+				<div class="timestamp" ng-show="$last">{{response.date}}</div>
+			</div>
+			<div class="message loading" ng-show="chat.typing">
+				<figure class="avatar">
+					<img ng-src="{{chat.botAvatar}}" />
+				</figure>
+				<span></span>
+			</div>
+		</div>
+	</div>
+	<div class="message-box">
+		<textarea type="text" ng-keypress="($event.which === 13 && chat.messageInput.length && chat.responses[chat.responses.length - 1].left) ? chat.sendMessage(chat.messageInput, false) : ''" class="message-input" ng-model="chat.messageInput" placeholder="Type your message..."></textarea><button type="submit" ng-disabled="chat.typing || !chat.responses[chat.responses.length - 1].left" class="message-submit" ng-click="chat.sendMessage(chat.messageInput, false)">Send</button>
+	</div>
 </div>
 <div class="bg"></div>

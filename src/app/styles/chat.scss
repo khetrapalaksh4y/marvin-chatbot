@@ -85,10 +85,13 @@ Chat Title
   z-index: 2;
   background: rgba(0, 0, 0, 0.2);
   color: #fff;
-  text-transform: uppercase;
   text-align: left;
   padding: 10px 10px 10px 50px;
-  
+
+  h1 {
+  	text-transform: uppercase;
+  }
+
   h1, h2 {
     font-weight: normal;
     font-size: 10px;
@@ -98,7 +101,7 @@ Chat Title
   
   h2 {
     color: rgba(255, 255, 255, .5);
-    font-size: 8px;
+    font-size: 9px;
     letter-spacing: 1px;
   }
   
@@ -129,7 +132,7 @@ Messages
 .messages {
   flex: 1 1 auto;
   color: rgba(255, 255, 255, .5);
-  overflow: hidden;
+  overflow-y: scroll;
   position: relative;
   width: 100%;
   
@@ -139,7 +142,10 @@ Messages
     left: 0;
     height: 101%;
     width: 100%;
-  }
+	margin: 1px -3px 1px 0;
+	margin-right: 0px;
+	padding: 0 10px;
+ }
 
   
   .message {
@@ -297,25 +303,6 @@ Message Box
     }
   }
 }
-
-
-/*--------------------
-Custom Srollbar
---------------------*/
-.mCSB_scrollTools {
-  margin: 1px -3px 1px 0;
-  opacity: 0;
-}
-
-.mCSB_inside > .mCSB_container {
-  margin-right: 0px;
-  padding: 0 10px;
-}
-
-.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
-  background-color: rgba(0, 0, 0, 0.5)!important;
-}
-
 
 /*--------------------
 Bounce
