@@ -1,6 +1,7 @@
 # Marvin
 
-A chatbot that asks questions and knows he's stupid.
+A chatbot that asks questions and knows it's stupid.
+Demo: http://khetrapalaksh4y.github.io/marvin-chatbot/dist/#/chat
 
 ### Installing
 
