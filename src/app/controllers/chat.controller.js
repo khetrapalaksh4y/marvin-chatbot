@@ -42,6 +42,10 @@
 		vm.sendMessage = function(message, left) {
 			var d = new Date()
 			var m = d.getMinutes();
+			if(m < 10)
+			{
+				m = "0" + m;
+			}
 
 			vm.typing = left ? false : vm.typing;
 			vm.messageInput = left ? vm.messageInput : "";
