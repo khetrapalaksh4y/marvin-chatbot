@@ -93,7 +93,7 @@
 
 		function matchesAgainstKeywords(keywordArray, stringToMatch) {
 			var itMatches = false;
-			keywordArray.forEach((keyword) => {
+			keywordArray.forEach(function(keyword) {
 				if(getApproximityScore(keyword, stringToMatch) > 0.7)
 				{
 					itMatches = true;
@@ -122,8 +122,8 @@
 		}
 
 		function getLevenshteinEditDistance(longerString, shorterString) {
-			var longerString = longerString.toLowerCase();
-			var shorterString = shorterString.toLowerCase();
+			longerString = longerString.toLowerCase();
+			shorterString = shorterString.toLowerCase();
 
 			var costs = [];
 			for (var i = 0; i <= longerString.length; i++) {
@@ -153,7 +153,7 @@
 		}
 
 		function getBotResponse() {
-			return new Promise((resolve, reject) => {
+			return new Promise(function(resolve, reject) {
 				$timeout(function() {
 					vm.typing = true;
 				}, 300);
